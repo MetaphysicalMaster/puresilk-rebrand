@@ -286,118 +286,105 @@
   .hero-frame[data-frame="1"] img { object-position: 50% 45%; }
   .hero-frame[data-frame="2"] img { object-position: 50% 55%; }
 
-  /* ===== MOBILE OPTIMIZATION v2 — STACKED HERO LAYOUT (DesignGod pass 1) ===== */
+  /* ===== MOBILE OPTIMIZATION v3 — BACKUP SINGER HERO (DistroGod direction) =====
+     Image stays full-bleed BACKGROUND. Text is the HEADLINER.
+     Same spirit as desktop, tuned for portrait mobile.                       */
   @media (max-width: 768px) {
-    /* HERO — stack image above copy on mobile. No overlay-blocking. */
+    /* HERO — overlay layout restored (NOT stacked). Image dimmed, text dominant. */
     #hero {
-      min-height: 0 !important;
+      min-height: 92vh !important;
       display: flex !important;
-      flex-direction: column !important;
+      align-items: center !important;
       padding: 0 !important;
-      align-items: stretch !important;
     }
 
-    /* Image container — relative block at top, full-width, fixed visual height */
-    #hero > .absolute.inset-0.z-0 {
-      position: relative !important;
-      inset: auto !important;
-      width: 100% !important;
-      height: 56vh !important;
-      min-height: 22rem !important;
-      flex-shrink: 0 !important;
-      z-index: 1 !important;
-    }
-
-    /* Hide desktop gradient overlays (not needed when image + copy are stacked) */
-    #hero > .absolute.inset-0.z-0 > .bg-gradient-to-r,
-    #hero > .absolute.inset-0.z-0 > .bg-gradient-to-t {
-      display: none !important;
-    }
-
-    /* Subtle bottom-fade silk transition between image and copy */
-    #hero > .absolute.inset-0.z-0::after {
-      content: '';
-      position: absolute;
-      inset: auto 0 0 0;
-      height: 5rem;
-      background: linear-gradient(to bottom, transparent, var(--silk-100, #F5EBDC));
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    /* 9:16 portrait imagery served via <picture> on mobile — center positioning is now ideal */
-    #hero .hero-frame[data-frame="0"] img { object-position: 50% 35% !important; }
-    #hero .hero-frame[data-frame="1"] img { object-position: 50% 50% !important; }
-    #hero .hero-frame[data-frame="2"] img { object-position: 50% 50% !important; }
-    /* Ensure picture and source resolve correctly with object-fit */
+    /* Picture wrapper sizing so object-fit propagates */
     #hero .hero-frame picture {
       display: block;
       width: 100%;
       height: 100%;
     }
 
-    /* Copy container — full width below image, normal flow, cream silk background */
-    #hero > .relative.z-10 {
-      position: relative !important;
-      z-index: 2 !important;
-      padding: 2rem 1.25rem 3rem !important;
-      background: var(--silk-100, #F5EBDC) !important;
-      max-width: 100% !important;
-      margin: 0 !important;
+    /* Image as backup singer: dimmed + desaturated + brightness pull */
+    #hero .hero-frame img {
+      opacity: 0.55 !important;
+      filter: saturate(0.85) brightness(0.95);
     }
-    #hero > .relative.z-10 > .max-w-2xl {
-      max-width: 100% !important;
+    #hero .hero-frame[data-frame="0"] img { object-position: 65% 30% !important; }
+    #hero .hero-frame[data-frame="1"] img { object-position: 50% 45% !important; }
+    #hero .hero-frame[data-frame="2"] img { object-position: 50% 50% !important; }
+
+    /* Cream gradient flips top-down for portrait orientation */
+    #hero > .absolute.inset-0.z-0 > .bg-gradient-to-r {
+      background: linear-gradient(180deg,
+        rgba(245, 235, 220, 0.92) 0%,
+        rgba(245, 235, 220, 0.78) 35%,
+        rgba(245, 235, 220, 0.55) 65%,
+        rgba(245, 235, 220, 0.35) 100%) !important;
+    }
+    #hero > .absolute.inset-0.z-0 > .bg-gradient-to-t {
+      background: linear-gradient(0deg, rgba(245, 235, 220, 0.85), transparent 40%) !important;
     }
 
-    /* Headline sizing — tuned for mobile readability */
+    /* Copy container — transparent, generous vertical breathing room */
+    #hero > .relative.z-10 {
+      padding: 5rem 1.5rem 6rem !important;
+      background: transparent !important;
+    }
+    #hero > .relative.z-10 > .max-w-2xl { max-width: 100% !important; }
+
+    /* HEADLINER: large, dominant, readable */
     #hero h1 {
-      font-size: 2.4rem !important;
-      line-height: 1.05 !important;
+      font-size: 2.75rem !important;
+      line-height: 1.02 !important;
     }
     #hero .font-script {
-      font-size: 1.5rem !important;
+      font-size: 1.1rem !important;
     }
     #hero p.font-display.text-xl,
     #hero p.font-display.md\:text-2xl {
-      font-size: 1.05rem !important;
+      font-size: 1.1rem !important;
       line-height: 1.5 !important;
+      max-width: 28ch;
     }
 
-    /* Trust signal block — full mobile width, no negative margin */
+    /* CTAs — full-width on mobile, stacked column already */
+    #hero .silk-unfurl-4 a { width: 100% !important; }
+
+    /* Trust signal demoted to footnote */
     #hero .silk-unfurl-5 {
+      padding-top: 1.25rem !important;
       margin-left: 0 !important;
       max-width: 100% !important;
     }
+    #hero .silk-unfurl-5 .star-rating i {
+      width: 0.875rem !important;
+      height: 0.875rem !important;
+    }
+    #hero .silk-unfurl-5 p { font-size: 0.7rem !important; }
 
-    /* Carousel indicators — anchor near bottom of image area */
+    /* Carousel dots: bottom-center, away from CTA stack */
     #hero > div[class*="bottom-6"][class*="right-6"] {
-      position: absolute !important;
-      top: calc(56vh - 3.5rem) !important;
-      bottom: auto !important;
-      right: 1rem !important;
-      z-index: 6 !important;
+      bottom: 1.25rem !important;
+      right: 50% !important;
+      top: auto !important;
+      transform: translateX(50%);
       padding: 0.5rem 0.9rem !important;
     }
-    /* Make sure indicator height accommodates min-height fallback */
-    @media (max-height: 700px) {
-      #hero > div[class*="bottom-6"][class*="right-6"] {
-        top: calc(22rem - 3.5rem) !important;
-      }
-    }
 
-    /* Hide floating award tag + scroll cue on mobile */
+    /* Hide award tag + scroll cue on mobile */
     #hero > div.absolute.top-8.right-8,
     #hero > div.absolute.bottom-8 {
       display: none !important;
     }
 
-    /* About interior tile — less tall aspect */
+    /* About interior tile — less tall aspect on mobile */
     #story .aspect-\[3\/4\] { aspect-ratio: 4 / 3 !important; }
 
     /* Final CTA backdrop tuned for mobile */
     #visit > img { object-position: center 40% !important; opacity: 0.4 !important; }
 
-    /* Service card — taller min-height on mobile for flip readability */
+    /* Service card — taller min-height for flip readability */
     .flip-card { min-height: 26rem; }
   }
 
