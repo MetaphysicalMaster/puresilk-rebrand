@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pure Silk Beauty — A House of Care in Upper Arlington</title>
+<meta name="description" content="Pure Silk Beauty — beauty rituals that recognize you before they touch you. Hydrafacial, lashes, brows, permanent makeup, massage. Upper Arlington, Columbus OH." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          silk: {
+            50:  '#FBF6EC',
+            100: '#F5EBDC',
+            200: '#EFE0CC',
+            300: '#E5D0B5',
+            400: '#D8BD96',
+          },
+          copper: {
+            300: '#D9A876',
+            400: '#C28B5A',
+            500: '#9B5C2E',
+            600: '#7E461F',
+            700: '#6B3A14',
+            800: '#4E2A0E',
+          },
+          gold: {
+            300: '#F4E1B5',
+            400: '#E8C397',
+          },
+          ink: {
+            DEFAULT: '#2A2520',
+            muted: '#8C7A6E',
+            soft: '#6B5E54',
+          },
+        },
+        fontFamily: {
+          script: ['"Allura"', 'cursive'],
+          display: ['"Cormorant Garamond"', 'serif'],
+          body: ['"Manrope"', 'sans-serif'],
+        },
+        boxShadow: {
+          soft: '0 6px 24px -10px rgba(107, 58, 20, 0.18)',
+          ritual: '0 12px 40px -16px rgba(107, 58, 20, 0.28)',
+        },
+        backgroundImage: {
+          'silk-texture': "radial-gradient(ellipse at top, rgba(232,195,151,0.18) 0%, rgba(245,235,220,0) 60%), radial-gradient(ellipse at bottom right, rgba(194,139,90,0.10) 0%, rgba(245,235,220,0) 55%)",
+          'copper-fade': 'linear-gradient(135deg, #9B5C2E 0%, #C28B5A 50%, #E8C397 100%)',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #F5EBDC; color: #2A2520; }
+
+  /* Subtle silk paper texture */
+  .silk-paper {
+    background-color: #F5EBDC;
+    background-image:
+      radial-gradient(at 12% 8%, rgba(232,195,151,0.25) 0%, rgba(245,235,220,0) 50%),
+      radial-gradient(at 88% 92%, rgba(194,139,90,0.14) 0%, rgba(245,235,220,0) 50%);
+  }
+
+  /* Hairline dividers in copper */
+  .copper-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #C28B5A 30%, #C28B5A 70%, transparent);
+  }
+  .copper-rule-short {
+    width: 64px;
+    height: 1px;
+    background: #9B5C2E;
+    margin: 0 auto;
+  }
+
+  /* Marquee animation */
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: scroll-left 90s linear infinite;
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+
+  /* Drop-cap script flourish */
+  .script-flourish {
+    font-family: 'Allura', cursive;
+    color: #9B5C2E;
+  }
+
+  /* Gold-foil text effect */
+  .copper-foil {
+    background: linear-gradient(135deg, #7E461F 0%, #9B5C2E 30%, #C28B5A 50%, #E8C397 75%, #9B5C2E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Button hover */
+  .btn-primary {
+    background: linear-gradient(135deg, #9B5C2E 0%, #7E461F 100%);
+    color: #FBF6EC;
+    transition: all 220ms ease;
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #7E461F 0%, #6B3A14 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px -10px rgba(107,58,20,0.4);
+  }
+  .btn-outline {
+    border: 1px solid #9B5C2E;
+    color: #6B3A14;
+    transition: all 220ms ease;
+  }
+  .btn-outline:hover {
+    background: #9B5C2E;
+    color: #FBF6EC;
+  }
+
+  /* Service card */
+  .service-card {
+    background: #FBF6EC;
+    border: 1px solid rgba(155, 92, 46, 0.10);
+    transition: all 280ms ease;
+  }
+  .service-card:hover {
+    border-color: rgba(155, 92, 46, 0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px -12px rgba(107, 58, 20, 0.22);
+  }
+
+  /* Star color */
+  .star-rating { color: #C28B5A; }
+
+  /* Team chip */
+  .team-chip {
+    background: linear-gradient(135deg, #F5EBDC 0%, #E5D0B5 100%);
+    border: 1px solid rgba(155, 92, 46, 0.18);
+  }
+
+  /* ===== PASS 2: SILK MOTIFS + REFINED MOTION ===== */
+
+  /* Silk flowing wave divider */
+  .silk-divider {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .silk-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 6rem);
+    height: 100%;
+    margin-left: -3rem;
+  }
+  .silk-wave-path {
+    animation: silk-flow 14s ease-in-out infinite;
+    transform-origin: center;
+  }
+  .silk-wave-path-2 {
+    animation: silk-flow 18s ease-in-out infinite reverse;
+    opacity: 0.5;
+  }
+  @keyframes silk-flow {
+    0%, 100% { transform: translateX(0) scaleY(1); }
+    50% { transform: translateX(-2.5%) scaleY(1.03); }
+  }
+
+  /* Silk shimmer on copper-foil text */
+  @keyframes silk-shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .copper-foil-shimmer {
+    background: linear-gradient(
+      105deg,
+      #7E461F 0%,
+      #9B5C2E 25%,
+      #C28B5A 40%,
+      #E8C397 50%,
+      #C28B5A 60%,
+      #9B5C2E 75%,
+      #7E461F 100%
+    );
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: silk-shimmer 7s linear infinite;
+  }
+
+  /* Page-load silk unfurl on hero */
+  @keyframes silk-unfurl {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+  .silk-unfurl-1 { animation: silk-unfurl 1.1s ease-out 0.1s both; }
+  .silk-unfurl-2 { animation: silk-unfurl 1.1s ease-out 0.3s both; }
+  .silk-unfurl-3 { animation: silk-unfurl 1.1s ease-out 0.5s both; }
+  .silk-unfurl-4 { animation: silk-unfurl 1.1s ease-out 0.7s both; }
+  .silk-unfurl-5 { animation: silk-unfurl 1.1s ease-out 0.9s both; }
+
+  /* Subtle ambient silk veil over hero (mimics fabric texture) */
+  .silk-veil {
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        105deg,
+        rgba(245, 235, 220, 0) 0px,
+        rgba(245, 235, 220, 0) 18px,
+        rgba(232, 195, 151, 0.03) 19px,
+        rgba(232, 195, 151, 0.03) 20px
+      ),
+      repeating-linear-gradient(
+        15deg,
+        rgba(245, 235, 220, 0) 0px,
+        rgba(245, 235, 220, 0) 22px,
+        rgba(155, 92, 46, 0.025) 23px,
+        rgba(155, 92, 46, 0.025) 24px
+      );
+    pointer-events: none;
+  }
+
+  /* Friendlier cookie strip */
+  #cookie-strip {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(120%);
+  }
+  #cookie-strip.show { transform: translateY(0); }
+
+  /* Reduced-motion respect */
+  @media (prefers-reduced-motion: reduce) {
+    .silk-wave-path,
+    .silk-wave-path-2,
+    .copper-foil-shimmer,
+    .silk-unfurl-1, .silk-unfurl-2, .silk-unfurl-3, .silk-unfurl-4, .silk-unfurl-5 {
+      animation: none;
+    }
+    .flip-card-inner { transition: none !important; }
+  }
+
+  /* ===== PASS 4: HERO CAROUSEL + SCROLL ANIMATIONS ===== */
+  .hero-frame {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hero-frame.active { opacity: 1; }
+  .hero-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* The "video" frame — slow pan/zoom Ken Burns effect */
+  .hero-frame-video img {
+    animation: hero-video-pan 18s ease-in-out infinite alternate;
+    transform-origin: center;
+  }
+  @keyframes hero-video-pan {
+    from { transform: scale(1.0) translate(0, 0); }
+    to   { transform: scale(1.12) translate(-2%, -1.5%); }
+  }
+  .hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(155, 92, 46, 0.30);
+    border: 1px solid rgba(155, 92, 46, 0.45);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    padding: 0;
+  }
+  .hero-dot.active {
+    width: 36px;
+    background: #9B5C2E;
+    border-color: #9B5C2E;
+    border-radius: 6px;
+  }
+  .hero-dot:hover { background: rgba(155, 92, 46, 0.55); }
+  .hero-dot.active:hover { background: #7E461F; }
+
+  /* Scroll-fade entry */
+  .scroll-fade {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .scroll-fade.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== PASS 3: SERVICE CARD 3D FLIP (Tribeca pattern) ===== */
+  .flip-card {
+    perspective: 1400px;
+    height: 100%;
+    min-height: 28rem;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+  }
+  .flip-card:hover .flip-card-inner,
+  .flip-card:focus-within .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    inset: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(160deg, #7E461F 0%, #9B5C2E 60%, #6B3A14 100%);
+    color: #FBF6EC;
+  }
+  .flip-card-back::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(232, 195, 151, 0.18) 0%, transparent 50%),
+      radial-gradient(circle at 80% 90%, rgba(244, 225, 181, 0.12) 0%, transparent 55%);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body class="font-body antialiased silk-paper">
+
+<!-- ================================================================== -->
+<!-- ANNOUNCEMENT BAR                                                    -->
+<!-- ================================================================== -->
+<div class="bg-copper-700 text-silk-50 text-xs tracking-[0.2em] uppercase py-2.5 text-center font-light">
+  <span class="font-script normal-case text-base text-gold-300 mr-2">Pure Care.</span>
+  <span class="opacity-70">·</span>
+  <span class="font-script normal-case text-base text-gold-300 mx-2">Pure Glow.</span>
+  <span class="opacity-70">·</span>
+  <span class="ml-2 hidden sm:inline">Upper Arlington · Columbus, Ohio</span>
+</div>
+
+<!-- ================================================================== -->
+<!-- NAVIGATION                                                          -->
+<!-- ================================================================== -->
+<header class="sticky top-0 z-40 backdrop-blur-sm bg-silk-100/85 border-b border-copper-400/20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+
+    <a href="#" class="flex items-center gap-3">
+      <img src="https://www.puresilkbeauty.com/cdn/shop/files/Pure_silk_logo_300x300.png?v=1776658596"
+           alt="Pure Silk Beauty"
+           class="w-14 h-14 object-contain"
+           loading="eager" />
+      <span class="hidden md:block">
+        <span class="block font-display text-xl text-copper-700 tracking-wide leading-none">Pure Silk Beauty</span>
+        <span class="block font-body text-[10px] text-ink-muted uppercase tracking-[0.25em] mt-1">Upper Arlington</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-9 font-body text-sm tracking-wide text-ink">
+      <a href="#rituals" class="hover:text-copper-500 transition">Rituals</a>
+      <a href="#voices" class="hover:text-copper-500 transition">Voices</a>
+      <a href="#story" class="hover:text-copper-500 transition">Our Story</a>
+      <a href="#team" class="hover:text-copper-500 transition">The Team</a>
+      <a href="#visit" class="hover:text-copper-500 transition">Visit Us</a>
+    </nav>
+
+    <a href="#visit" class="btn-primary px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-medium">
+      Book a Visit
+    </a>
+  </div>
+</header>
+
+<!-- ================================================================== -->
+<!-- SECTION 1 — HERO (full-bleed cinematic)                             -->
+<!-- ================================================================== -->
+<section class="relative overflow-hidden min-h-[88vh] flex items-center">
+
+  <!-- Hero carousel: 3 frames cycling (Heyday pattern), Frame 3 is "video" Ken Burns pan -->
+  <div class="absolute inset-0 z-0">
+    <div class="hero-frame active" data-frame="0">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081501_50a95645-19f8-41c9-839b-8e5dc6fd75f6.png"
+           alt="A woman receiving care at Pure Silk Beauty"
+           loading="eager"
+           fetchpriority="high" />
+    </div>
+    <div class="hero-frame" data-frame="1">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081557_ad64ffcd-f1d1-4c71-a111-4aaa33cbb180.png"
+           alt="The interior of Pure Silk Beauty studio"
+           loading="lazy" />
+    </div>
+    <div class="hero-frame hero-frame-video" data-frame="2">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081600_1c9e0f18-e382-4f8f-8ecc-945d95b9c7f5.png"
+           alt="The chair, ready for you"
+           loading="lazy" />
+    </div>
+    <!-- Cream-silk gradient overlay for text legibility -->
+    <div class="absolute inset-0 bg-gradient-to-r from-silk-100 via-silk-100/85 to-silk-100/15 lg:to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-silk-100/60 via-transparent to-transparent"></div>
+    <!-- Silk veil texture -->
+    <div class="silk-veil"></div>
+  </div>
+
+  <!-- Carousel indicators -->
+  <div class="absolute bottom-6 right-6 lg:bottom-10 lg:right-10 z-20 flex items-center gap-2.5 bg-silk-50/50 backdrop-blur-sm px-5 py-3 rounded-full border border-copper-400/15">
+    <button class="hero-dot active" data-frame-btn="0" aria-label="Slide 1: The Care"></button>
+    <button class="hero-dot" data-frame-btn="1" aria-label="Slide 2: The Room"></button>
+    <button class="hero-dot" data-frame-btn="2" aria-label="Slide 3: The Chair"></button>
+  </div>
+
+  <!-- Copy overlay -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32 w-full">
+    <div class="max-w-2xl">
+
+      <p class="font-script text-3xl md:text-4xl text-copper-600 mb-6 drop-shadow-sm silk-unfurl-1">A house of care in Upper Arlington.</p>
+
+      <h1 class="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] text-ink mb-8 italic font-light drop-shadow-sm silk-unfurl-2">
+        We do not change your face.<br/><span class="not-italic font-normal copper-foil-shimmer">We learn it.</span>
+      </h1>
+
+      <p class="font-display text-xl md:text-2xl text-ink-soft leading-relaxed mb-10 font-light max-w-xl silk-unfurl-3">
+        The door closes. The hour is yours. Every line, every freckle, every season your skin has lived through — read carefully before anything is offered.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 mb-10 silk-unfurl-4">
+        <a href="#visit" class="btn-primary px-9 py-4 rounded-full text-sm uppercase tracking-[0.25em] font-medium text-center">
+          Begin Your Visit
+        </a>
+        <a href="#rituals" class="btn-outline px-9 py-4 rounded-full text-sm uppercase tracking-[0.25em] font-medium text-center bg-silk-50/80 backdrop-blur-sm">
+          See the Rituals
+        </a>
+      </div>
+
+      <!-- Trust signal -->
+      <div class="flex items-center gap-4 pt-8 border-t border-copper-400/30 max-w-md silk-unfurl-5">
+        <div class="flex items-center gap-1 star-rating text-lg">
+          <i data-lucide="star" class="fill-current w-5 h-5"></i>
+          <i data-lucide="star" class="fill-current w-5 h-5"></i>
+          <i data-lucide="star" class="fill-current w-5 h-5"></i>
+          <i data-lucide="star" class="fill-current w-5 h-5"></i>
+          <i data-lucide="star" class="fill-current w-5 h-5"></i>
+        </div>
+        <p class="font-body text-sm text-ink-soft leading-snug">
+          <span class="font-medium text-ink">411 women</span> have crossed this threshold.
+          <br/>
+          <span class="font-display italic text-copper-600">411 faces, learned by hand.</span>
+          <br/>
+          <a href="#voices" class="text-copper-500 underline underline-offset-4 decoration-copper-400/50 hover:decoration-copper-500 text-xs mt-1 inline-block">Read what they've said →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center gap-2 text-copper-600">
+    <span class="font-body text-[10px] uppercase tracking-[0.3em]">Step Inside</span>
+    <i data-lucide="chevron-down" class="w-4 h-4 animate-bounce"></i>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SECTION 2 — INTRO BAND                                              -->
+<!-- ================================================================== -->
+<!-- Silk wave divider -->
+<div class="silk-divider bg-silk-50">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path class="silk-wave-path-2" d="M0,30 Q360,10 720,30 T1440,30 L1440,60 L0,60 Z" fill="rgba(232, 195, 151, 0.18)"/>
+    <path class="silk-wave-path" d="M0,38 Q360,58 720,38 T1440,38 L1440,60 L0,60 Z" fill="rgba(194, 139, 90, 0.10)"/>
+  </svg>
+</div>
+
+<section class="py-20 lg:py-28 bg-silk-50">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+
+    <p class="font-body text-xs uppercase tracking-[0.4em] text-copper-500 mb-8">An Invitation</p>
+
+    <div class="copper-rule-short mb-12"></div>
+
+    <p class="font-display italic text-4xl md:text-5xl text-ink leading-snug mb-10 font-light">
+      Beauty isn't a project.<br/>It's a presence.
+    </p>
+
+    <p class="font-body text-lg text-ink-soft leading-relaxed mb-8 max-w-xl mx-auto">
+      At Pure Silk Beauty, every treatment is a quiet act of return — your skin, your lashes, your hands, met with the kind of attention you'd give a friend you love.
+    </p>
+
+    <p class="font-display italic text-2xl text-copper-600 mt-10 leading-snug">
+      Step in. Let the world wait outside the door.
+    </p>
+
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SECTION 3 — SERVICES (THE RITUALS WE KEEP)                          -->
+<!-- ================================================================== -->
+<section id="rituals" class="py-20 lg:py-32 bg-silk-100">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <p class="font-body text-xs uppercase tracking-[0.4em] text-copper-500 mb-4">Our Services</p>
+      <h2 class="font-display italic text-5xl md:text-6xl text-ink mb-6 font-light">
+        The Rituals We Keep
+      </h2>
+      <div class="copper-rule-short mb-8"></div>
+      <p class="font-body text-lg text-ink-soft leading-relaxed">
+        Eight rituals. One throughline — <em class="font-display">care that recognizes you before it touches you.</em>
+      </p>
+      <p class="font-display italic text-xl text-copper-600 mt-4">Choose what calls.</p>
+    </div>
+
+    <!-- Concern-first quick access bar — Ever/Body pattern -->
+    <div class="max-w-4xl mx-auto mb-14">
+      <p class="text-center font-body text-xs uppercase tracking-[0.3em] text-ink-muted mb-5">What brings you in today?</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <a href="#rituals" class="group bg-silk-50 border border-copper-400/15 rounded-xl py-4 px-3 text-center hover:border-copper-400 hover:shadow-soft transition">
+          <i data-lucide="sparkles" class="w-5 h-5 mx-auto mb-2 text-copper-500 group-hover:text-copper-700 transition"></i>
+          <p class="font-display text-base text-ink">Skin</p>
+          <p class="font-body text-[10px] text-ink-muted uppercase tracking-wider mt-0.5">Facials · Hydra · PMU</p>
+        </a>
+        <a href="#rituals" class="group bg-silk-50 border border-copper-400/15 rounded-xl py-4 px-3 text-center hover:border-copper-400 hover:shadow-soft transition">
+          <i data-lucide="eye" class="w-5 h-5 mx-auto mb-2 text-copper-500 group-hover:text-copper-700 transition"></i>
+          <p class="font-display text-base text-ink">Eyes</p>
+          <p class="font-body text-[10px] text-ink-muted uppercase tracking-wider mt-0.5">Lashes · Brows</p>
+        </a>
+        <a href="#rituals" class="group bg-silk-50 border border-copper-400/15 rounded-xl py-4 px-3 text-center hover:border-copper-400 hover:shadow-soft transition">
+          <i data-lucide="hand" class="w-5 h-5 mx-auto mb-2 text-copper-500 group-hover:text-copper-700 transition"></i>
+          <p class="font-display text-base text-ink">Body</p>
+          <p class="font-body text-[10px] text-ink-muted uppercase tracking-wider mt-0.5">Massage · Wax</p>
+        </a>
+        <a href="#rituals" class="group bg-silk-50 border border-copper-400/15 rounded-xl py-4 px-3 text-center hover:border-copper-400 hover:shadow-soft transition">
+          <i data-lucide="leaf" class="w-5 h-5 mx-auto mb-2 text-copper-500 group-hover:text-copper-700 transition"></i>
+          <p class="font-display text-base text-ink">Home</p>
+          <p class="font-body text-[10px] text-ink-muted uppercase tracking-wider mt-0.5">Skincare · Counsel</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- 4x2 grid with editorial flip cards -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Hydrafacial -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front service-card overflow-hidden flex flex-col bg-silk-50 group">
+            <div class="aspect-[4/3] overflow-hidden relative">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_082508_d3599260-b9e9-44b1-9a82-9c198159fff9.png"
+                   alt="Luminescent skin after Hydrafacial"
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   loading="lazy" />
+              <div class="absolute top-3 left-3 bg-silk-50/95 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-700 font-medium">Skin</span>
+              </div>
+            </div>
+            <div class="p-7 flex-1 flex flex-col">
+              <h3 class="font-display text-2xl text-ink mb-3">Hydrafacial</h3>
+              <p class="font-body text-sm text-ink-soft leading-relaxed mb-5 flex-1">
+                A clarifying ritual that lifts what no longer serves your skin — and leaves the glow that was always underneath.
+              </p>
+              <p class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-500/70 mt-auto inline-flex items-center gap-2">
+                Hover for details
+                <i data-lucide="rotate-3d" class="w-3 h-3"></i>
+              </p>
+            </div>
+          </div>
+          <div class="flip-card-back p-8 flex flex-col justify-between">
+            <div>
+              <p class="font-body text-[10px] uppercase tracking-[0.3em] text-gold-300 mb-3">The Ritual</p>
+              <h3 class="font-display text-3xl italic mb-5 leading-tight">Hydrafacial</h3>
+              <p class="font-body text-sm leading-relaxed mb-6 opacity-95">
+                A three-step ritual — cleanse, extract, infuse. Sixty minutes that leaves your skin reading itself differently.
+              </p>
+              <div class="space-y-2">
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>From $149 (Basic) · $185 (Premier)
+                </p>
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>60 minutes · All skin types
+                </p>
+              </div>
+            </div>
+            <a href="#visit" class="bg-gold-400 text-copper-800 hover:bg-gold-300 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.25em] font-medium inline-flex items-center gap-2 self-start transition">
+              Book This Ritual
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Facials -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front service-card overflow-hidden flex flex-col bg-silk-50 group">
+            <div class="aspect-[4/3] overflow-hidden relative">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081612_1c52be2e-11d7-4e68-8de4-d34083bb9b67.png"
+                   alt="A hand applying serum to a woman's cheek"
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   loading="lazy" />
+              <div class="absolute top-3 left-3 bg-silk-50/95 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-700 font-medium">Skin</span>
+              </div>
+            </div>
+            <div class="p-7 flex-1 flex flex-col">
+              <h3 class="font-display text-2xl text-ink mb-3">Facials</h3>
+              <p class="font-body text-sm text-ink-soft leading-relaxed mb-5 flex-1">
+                Custom-tended care that meets your skin where it lives this season — not where a brochure says it should be.
+              </p>
+              <p class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-500/70 mt-auto inline-flex items-center gap-2">
+                Hover for details
+                <i data-lucide="rotate-3d" class="w-3 h-3"></i>
+              </p>
+            </div>
+          </div>
+          <div class="flip-card-back p-8 flex flex-col justify-between">
+            <div>
+              <p class="font-body text-[10px] uppercase tracking-[0.3em] text-gold-300 mb-3">The Ritual</p>
+              <h3 class="font-display text-3xl italic mb-5 leading-tight">Facials</h3>
+              <p class="font-body text-sm leading-relaxed mb-6 opacity-95">
+                Custom-built around what your skin is asking for today — not what a brochure decided last year. Dermaplane, enzyme, lift — we read first.
+              </p>
+              <div class="space-y-2">
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>DMK Signature — $265
+                </p>
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>60–90 minutes · Bespoke per visit
+                </p>
+              </div>
+            </div>
+            <a href="#visit" class="bg-gold-400 text-copper-800 hover:bg-gold-300 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.25em] font-medium inline-flex items-center gap-2 self-start transition">
+              Book This Ritual
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lashes -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front service-card overflow-hidden flex flex-col bg-silk-50 group">
+            <div class="aspect-[4/3] overflow-hidden relative">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081608_9383a433-626d-4e7d-b0c2-0e7ec977a9fb.png"
+                   alt="Close detail of lash extensions"
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   loading="lazy" />
+              <div class="absolute top-3 left-3 bg-silk-50/95 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-700 font-medium">Eyes</span>
+              </div>
+            </div>
+            <div class="p-7 flex-1 flex flex-col">
+              <h3 class="font-display text-2xl text-ink mb-3">Lashes</h3>
+              <p class="font-body text-sm text-ink-soft leading-relaxed mb-5 flex-1">
+                Extensions and lifts shaped to your eyes, your story, your morning — held by hands that have done this hundreds of times.
+              </p>
+              <p class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-500/70 mt-auto inline-flex items-center gap-2">
+                Hover for details
+                <i data-lucide="rotate-3d" class="w-3 h-3"></i>
+              </p>
+            </div>
+          </div>
+          <div class="flip-card-back p-8 flex flex-col justify-between">
+            <div>
+              <p class="font-body text-[10px] uppercase tracking-[0.3em] text-gold-300 mb-3">The Ritual</p>
+              <h3 class="font-display text-3xl italic mb-5 leading-tight">Lashes</h3>
+              <p class="font-body text-sm leading-relaxed mb-6 opacity-95">
+                Classic, hybrid, volume, or a quiet lift if extensions aren't your morning. Mapped to your eye shape and how you'd like to feel walking in.
+              </p>
+              <div class="space-y-2">
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>60–150 minutes
+                </p>
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>First visit incl. mapping
+                </p>
+              </div>
+            </div>
+            <a href="#visit" class="bg-gold-400 text-copper-800 hover:bg-gold-300 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.25em] font-medium inline-flex items-center gap-2 self-start transition">
+              Book This Ritual
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brows -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front service-card overflow-hidden flex flex-col bg-silk-50 group">
+            <div class="aspect-[4/3] overflow-hidden relative">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_082511_40d9733e-1f89-4afc-b7a0-187e42045dd8.png"
+                   alt="Brow shaping detail"
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   loading="lazy" />
+              <div class="absolute top-3 left-3 bg-silk-50/95 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-700 font-medium">Eyes</span>
+              </div>
+            </div>
+            <div class="p-7 flex-1 flex flex-col">
+              <h3 class="font-display text-2xl text-ink mb-3">Brows</h3>
+              <p class="font-body text-sm text-ink-soft leading-relaxed mb-5 flex-1">
+                The frame of your face, mapped to the architecture you were born with. Shaped, tinted, restored — never reinvented.
+              </p>
+              <p class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-500/70 mt-auto inline-flex items-center gap-2">
+                Hover for details
+                <i data-lucide="rotate-3d" class="w-3 h-3"></i>
+              </p>
+            </div>
+          </div>
+          <div class="flip-card-back p-8 flex flex-col justify-between">
+            <div>
+              <p class="font-body text-[10px] uppercase tracking-[0.3em] text-gold-300 mb-3">The Ritual</p>
+              <h3 class="font-display text-3xl italic mb-5 leading-tight">Brows</h3>
+              <p class="font-body text-sm leading-relaxed mb-6 opacity-95">
+                Wax, tint, shape — or all three, sequenced. Restored to the architecture you were born with. Never reinvented.
+              </p>
+              <div class="space-y-2">
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>30–45 minutes
+                </p>
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>Complimentary mapping
+                </p>
+              </div>
+            </div>
+            <a href="#visit" class="bg-gold-400 text-copper-800 hover:bg-gold-300 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.25em] font-medium inline-flex items-center gap-2 self-start transition">
+              Book This Ritual
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Waxing -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front service-card overflow-hidden flex flex-col bg-silk-50 group">
+            <div class="aspect-[4/3] overflow-hidden relative">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_082515_31f3b343-c93a-4f48-a417-87efe1d9248d.png"
+                   alt="Warm wax + linen still life"
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   loading="lazy" />
+              <div class="absolute top-3 left-3 bg-silk-50/95 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-700 font-medium">Body</span>
+              </div>
+            </div>
+            <div class="p-7 flex-1 flex flex-col">
+              <h3 class="font-display text-2xl text-ink mb-3">Waxing</h3>
+              <p class="font-body text-sm text-ink-soft leading-relaxed mb-5 flex-1">
+                Smooth, careful, unhurried. The kind of service you forget to dread because the room remembers how to hold you.
+              </p>
+              <p class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-500/70 mt-auto inline-flex items-center gap-2">
+                Hover for details
+                <i data-lucide="rotate-3d" class="w-3 h-3"></i>
+              </p>
+            </div>
+          </div>
+          <div class="flip-card-back p-8 flex flex-col justify-between">
+            <div>
+              <p class="font-body text-[10px] uppercase tracking-[0.3em] text-gold-300 mb-3">The Ritual</p>
+              <h3 class="font-display text-3xl italic mb-5 leading-tight">Waxing</h3>
+              <p class="font-body text-sm leading-relaxed mb-6 opacity-95">
+                Face or body. The room is warm. Single-use applicators. Hands that have done this thousands of times — gently, without commentary.
+              </p>
+              <div class="space-y-2">
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>15–60 minutes
+                </p>
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>Single-use protocol
+                </p>
+              </div>
+            </div>
+            <a href="#visit" class="bg-gold-400 text-copper-800 hover:bg-gold-300 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.25em] font-medium inline-flex items-center gap-2 self-start transition">
+              Book This Ritual
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Permanent Makeup -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front service-card overflow-hidden flex flex-col bg-silk-50 group">
+            <div class="aspect-[4/3] overflow-hidden relative">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_082520_1dc0ff94-4eeb-4a6c-a075-a6956c103dd9.png"
+                   alt="Permanent makeup artist hand detail"
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   loading="lazy" />
+              <div class="absolute top-3 left-3 bg-silk-50/95 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-700 font-medium">Skin</span>
+              </div>
+            </div>
+            <div class="p-7 flex-1 flex flex-col">
+              <h3 class="font-display text-2xl text-ink mb-3">Permanent Makeup</h3>
+              <p class="font-body text-sm text-ink-soft leading-relaxed mb-5 flex-1">
+                For mornings when you want the woman in the mirror to already look like you. Brows, lips, lines — quietly there.
+              </p>
+              <p class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-500/70 mt-auto inline-flex items-center gap-2">
+                Hover for details
+                <i data-lucide="rotate-3d" class="w-3 h-3"></i>
+              </p>
+            </div>
+          </div>
+          <div class="flip-card-back p-8 flex flex-col justify-between">
+            <div>
+              <p class="font-body text-[10px] uppercase tracking-[0.3em] text-gold-300 mb-3">The Ritual</p>
+              <h3 class="font-display text-3xl italic mb-5 leading-tight">Permanent Makeup</h3>
+              <p class="font-body text-sm leading-relaxed mb-6 opacity-95">
+                Powder brows, ombré brows, lip blush, eyeliner — quietly there when you need it. By appointment with our resident PMU artist. Two sessions: the work, then the perfecting six weeks later.
+              </p>
+              <div class="space-y-2">
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>Brows $450 · Eyeliner $300
+                </p>
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>2.5–3 hours · Two-session inclusive
+                </p>
+              </div>
+            </div>
+            <a href="#visit" class="bg-gold-400 text-copper-800 hover:bg-gold-300 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.25em] font-medium inline-flex items-center gap-2 self-start transition">
+              Book This Ritual
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Massage -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front service-card overflow-hidden flex flex-col bg-silk-50 group">
+            <div class="aspect-[4/3] overflow-hidden relative">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_082523_9f9db67a-48c2-441a-9cb7-7bc03d9a99f4.png"
+                   alt="Hands resting gently before massage"
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   loading="lazy" />
+              <div class="absolute top-3 left-3 bg-silk-50/95 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-700 font-medium">Body</span>
+              </div>
+            </div>
+            <div class="p-7 flex-1 flex flex-col">
+              <h3 class="font-display text-2xl text-ink mb-3">Massage</h3>
+              <p class="font-body text-sm text-ink-soft leading-relaxed mb-5 flex-1">
+                An hour where your body stops being a to-do list and becomes a thing that's tended. Tension, lifted. Breath, returned.
+              </p>
+              <p class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-500/70 mt-auto inline-flex items-center gap-2">
+                Hover for details
+                <i data-lucide="rotate-3d" class="w-3 h-3"></i>
+              </p>
+            </div>
+          </div>
+          <div class="flip-card-back p-8 flex flex-col justify-between">
+            <div>
+              <p class="font-body text-[10px] uppercase tracking-[0.3em] text-gold-300 mb-3">The Ritual</p>
+              <h3 class="font-display text-3xl italic mb-5 leading-tight">Massage</h3>
+              <p class="font-body text-sm leading-relaxed mb-6 opacity-95">
+                Therapeutic, prenatal, or an unhurried hour that resets your shoulders and your breath in equal measure.
+              </p>
+              <div class="space-y-2">
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>60 or 90 minutes
+                </p>
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>Three pressure levels
+                </p>
+              </div>
+            </div>
+            <a href="#visit" class="bg-gold-400 text-copper-800 hover:bg-gold-300 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.25em] font-medium inline-flex items-center gap-2 self-start transition">
+              Book This Ritual
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skincare -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front service-card overflow-hidden flex flex-col bg-silk-50 group">
+            <div class="aspect-[4/3] overflow-hidden relative">
+              <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_082526_d9951f12-0cec-43cc-9ada-b067f279566e.png"
+                   alt="Apothecary skincare still life"
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                   loading="lazy" />
+              <div class="absolute top-3 left-3 bg-silk-50/95 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <span class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-700 font-medium">Home</span>
+              </div>
+            </div>
+            <div class="p-7 flex-1 flex flex-col">
+              <h3 class="font-display text-2xl text-ink mb-3">Skincare</h3>
+              <p class="font-body text-sm text-ink-soft leading-relaxed mb-5 flex-1">
+                The home practice that carries the room with you. Products and counsel chosen for the skin you actually live in.
+              </p>
+              <p class="font-body text-[10px] uppercase tracking-[0.25em] text-copper-500/70 mt-auto inline-flex items-center gap-2">
+                Hover for details
+                <i data-lucide="rotate-3d" class="w-3 h-3"></i>
+              </p>
+            </div>
+          </div>
+          <div class="flip-card-back p-8 flex flex-col justify-between">
+            <div>
+              <p class="font-body text-[10px] uppercase tracking-[0.3em] text-gold-300 mb-3">The Ritual</p>
+              <h3 class="font-display text-3xl italic mb-5 leading-tight">Skincare</h3>
+              <p class="font-body text-sm leading-relaxed mb-6 opacity-95">
+                A skin-reading session, free with any service. Products curated for the skin you actually live in — never the one a brochure imagined.
+              </p>
+              <div class="space-y-2">
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>15 minutes
+                </p>
+                <p class="font-body text-[11px] uppercase tracking-[0.25em] text-gold-300 flex items-center gap-3">
+                  <span class="w-4 h-px bg-gold-300"></span>Complimentary with any visit
+                </p>
+              </div>
+            </div>
+            <a href="#visit" class="bg-gold-400 text-copper-800 hover:bg-gold-300 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.25em] font-medium inline-flex items-center gap-2 self-start transition">
+              Book This Ritual
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Specialty Rituals strip (Tiff intel — Threading + Henna differentiators) -->
+    <div class="mt-14 max-w-5xl mx-auto bg-gradient-to-br from-copper-700 to-copper-800 rounded-2xl p-8 md:p-10 shadow-ritual relative overflow-hidden">
+      <div class="absolute inset-0 opacity-20 pointer-events-none">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-gold-300 rounded-full filter blur-3xl"></div>
+      </div>
+      <div class="relative grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="font-body text-[10px] uppercase tracking-[0.4em] text-gold-300 mb-3">Found Nowhere Else Nearby</p>
+          <h3 class="font-display italic text-4xl md:text-5xl text-silk-50 mb-4 leading-tight font-light">
+            Specialty Rituals
+          </h3>
+          <p class="font-body text-base text-silk-200 leading-relaxed">
+            Two arts most local salons no longer offer. We've kept them — quiet, careful, by request.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-silk-50/10 backdrop-blur-sm rounded-xl p-5 border border-gold-300/20 hover:bg-silk-50/20 transition cursor-pointer">
+            <i data-lucide="scissors" class="w-7 h-7 text-gold-300 mb-3"></i>
+            <h4 class="font-display text-2xl text-silk-50 italic mb-1">Threading</h4>
+            <p class="font-body text-xs text-silk-200/90 leading-snug">Brow shaping the original way. Precision without wax.</p>
+          </div>
+          <div class="bg-silk-50/10 backdrop-blur-sm rounded-xl p-5 border border-gold-300/20 hover:bg-silk-50/20 transition cursor-pointer">
+            <i data-lucide="palette" class="w-7 h-7 text-gold-300 mb-3"></i>
+            <h4 class="font-display text-2xl text-silk-50 italic mb-1">Henna</h4>
+            <p class="font-body text-xs text-silk-200/90 leading-snug">Natural pigment artistry. Bridal, festival, or quiet ceremony.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SECTION 3B — TREATMENT MOMENTS (UGC video showcase, Pass 3)         -->
+<!-- ================================================================== -->
+<section id="moments" class="py-20 lg:py-28 bg-silk-50 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <p class="font-body text-xs uppercase tracking-[0.4em] text-copper-500 mb-4">Phase Two · Coming Soon</p>
+      <h2 class="font-display italic text-5xl md:text-6xl text-ink mb-6 font-light">
+        Treatment Moments
+      </h2>
+      <div class="copper-rule-short mb-8"></div>
+      <p class="font-body text-lg text-ink-soft leading-relaxed">
+        Short, restful glimpses of the work — hands, textures, light.
+        <em class="font-display">No commentary. No scripts. Just craft.</em>
+      </p>
+    </div>
+
+    <!-- 5-card vertical video grid (Westman-style) -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 lg:gap-4 max-w-6xl mx-auto">
+
+      <!-- Moment 1: Hydrafacial -->
+      <div class="relative aspect-[9/16] rounded-2xl overflow-hidden group cursor-pointer shadow-soft">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_082508_d3599260-b9e9-44b1-9a82-9c198159fff9.png"
+             alt="Hydrafacial glow moment"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+             loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-copper-800/70 via-transparent to-transparent"></div>
+        <!-- Play icon -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 rounded-full bg-silk-50/95 backdrop-blur-sm flex items-center justify-center shadow-ritual group-hover:scale-110 transition-transform">
+            <i data-lucide="play" class="w-6 h-6 text-copper-700 fill-current ml-0.5"></i>
+          </div>
+        </div>
+        <!-- Label -->
+        <div class="absolute bottom-4 left-4 right-4">
+          <p class="font-body text-[10px] uppercase tracking-[0.25em] text-gold-300 mb-1">Skin Ritual</p>
+          <p class="font-display text-xl text-silk-50 italic leading-tight">Hydrafacial</p>
+        </div>
+        <!-- Phase 2 badge -->
+        <div class="absolute top-3 right-3 bg-silk-50/95 backdrop-blur-sm px-2.5 py-1 rounded-full">
+          <span class="font-body text-[9px] uppercase tracking-[0.2em] text-copper-700 font-medium">Preview</span>
+        </div>
+      </div>
+
+      <!-- Moment 2: Facials -->
+      <div class="relative aspect-[9/16] rounded-2xl overflow-hidden group cursor-pointer shadow-soft">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081612_1c52be2e-11d7-4e68-8de4-d34083bb9b67.png"
+             alt="Facial application moment"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+             loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-copper-800/70 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 rounded-full bg-silk-50/95 backdrop-blur-sm flex items-center justify-center shadow-ritual group-hover:scale-110 transition-transform">
+            <i data-lucide="play" class="w-6 h-6 text-copper-700 fill-current ml-0.5"></i>
+          </div>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4">
+          <p class="font-body text-[10px] uppercase tracking-[0.25em] text-gold-300 mb-1">Skin Ritual</p>
+          <p class="font-display text-xl text-silk-50 italic leading-tight">Facials</p>
+        </div>
+        <div class="absolute top-3 right-3 bg-silk-50/95 backdrop-blur-sm px-2.5 py-1 rounded-full">
+          <span class="font-body text-[9px] uppercase tracking-[0.2em] text-copper-700 font-medium">Preview</span>
+        </div>
+      </div>
+
+      <!-- Moment 3: Lashes -->
+      <div class="relative aspect-[9/16] rounded-2xl overflow-hidden group cursor-pointer shadow-soft">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081608_9383a433-626d-4e7d-b0c2-0e7ec977a9fb.png"
+             alt="Lash moment"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+             loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-copper-800/70 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 rounded-full bg-silk-50/95 backdrop-blur-sm flex items-center justify-center shadow-ritual group-hover:scale-110 transition-transform">
+            <i data-lucide="play" class="w-6 h-6 text-copper-700 fill-current ml-0.5"></i>
+          </div>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4">
+          <p class="font-body text-[10px] uppercase tracking-[0.25em] text-gold-300 mb-1">Eyes Ritual</p>
+          <p class="font-display text-xl text-silk-50 italic leading-tight">Lashes</p>
+        </div>
+        <div class="absolute top-3 right-3 bg-silk-50/95 backdrop-blur-sm px-2.5 py-1 rounded-full">
+          <span class="font-body text-[9px] uppercase tracking-[0.2em] text-copper-700 font-medium">Preview</span>
+        </div>
+      </div>
+
+      <!-- Moment 4: Brows -->
+      <div class="relative aspect-[9/16] rounded-2xl overflow-hidden group cursor-pointer shadow-soft">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_082511_40d9733e-1f89-4afc-b7a0-187e42045dd8.png"
+             alt="Brow moment"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+             loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-copper-800/70 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 rounded-full bg-silk-50/95 backdrop-blur-sm flex items-center justify-center shadow-ritual group-hover:scale-110 transition-transform">
+            <i data-lucide="play" class="w-6 h-6 text-copper-700 fill-current ml-0.5"></i>
+          </div>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4">
+          <p class="font-body text-[10px] uppercase tracking-[0.25em] text-gold-300 mb-1">Eyes Ritual</p>
+          <p class="font-display text-xl text-silk-50 italic leading-tight">Brows</p>
+        </div>
+        <div class="absolute top-3 right-3 bg-silk-50/95 backdrop-blur-sm px-2.5 py-1 rounded-full">
+          <span class="font-body text-[9px] uppercase tracking-[0.2em] text-copper-700 font-medium">Preview</span>
+        </div>
+      </div>
+
+      <!-- Moment 5: Massage -->
+      <div class="relative aspect-[9/16] rounded-2xl overflow-hidden group cursor-pointer shadow-soft col-span-2 md:col-span-1">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_082523_9f9db67a-48c2-441a-9cb7-7bc03d9a99f4.png"
+             alt="Massage moment"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+             loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-copper-800/70 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-16 h-16 rounded-full bg-silk-50/95 backdrop-blur-sm flex items-center justify-center shadow-ritual group-hover:scale-110 transition-transform">
+            <i data-lucide="play" class="w-6 h-6 text-copper-700 fill-current ml-0.5"></i>
+          </div>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4">
+          <p class="font-body text-[10px] uppercase tracking-[0.25em] text-gold-300 mb-1">Body Ritual</p>
+          <p class="font-display text-xl text-silk-50 italic leading-tight">Massage</p>
+        </div>
+        <div class="absolute top-3 right-3 bg-silk-50/95 backdrop-blur-sm px-2.5 py-1 rounded-full">
+          <span class="font-body text-[9px] uppercase tracking-[0.2em] text-copper-700 font-medium">Preview</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Note for owners -->
+    <div class="text-center mt-10">
+      <p class="font-display italic text-base text-ink-muted max-w-xl mx-auto">
+        These are still images today. As a Phase Two upgrade, each becomes a short looping video — no actors, no scripts. Just the room, the hands, the light.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Silk wave divider -->
+<div class="silk-divider bg-silk-100">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path class="silk-wave-path-2" d="M0,30 Q360,55 720,30 T1440,30 L1440,60 L0,60 Z" fill="rgba(232, 195, 151, 0.22)"/>
+    <path class="silk-wave-path" d="M0,40 Q360,15 720,40 T1440,40 L1440,60 L0,60 Z" fill="rgba(194, 139, 90, 0.12)"/>
+  </svg>
+</div>
+
+<section id="voices" class="py-20 lg:py-32 silk-paper relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 mb-12 text-center">
+    <p class="font-body text-xs uppercase tracking-[0.4em] text-copper-500 mb-4">Voices from the Room</p>
+    <h2 class="font-display italic text-5xl md:text-6xl text-ink mb-6 font-light">
+      Words from Women Who Stayed
+    </h2>
+    <div class="copper-rule-short mb-8"></div>
+
+    <!-- Quantified trust stats — Heyday pattern -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+
+      <div class="bg-silk-50 px-6 py-6 rounded-2xl border border-copper-400/20 shadow-soft text-center">
+        <p class="font-display text-5xl text-copper-600 font-medium leading-none mb-2">4.6</p>
+        <div class="flex justify-center star-rating text-sm mb-2">
+          <i data-lucide="star" class="fill-current w-3.5 h-3.5"></i>
+          <i data-lucide="star" class="fill-current w-3.5 h-3.5"></i>
+          <i data-lucide="star" class="fill-current w-3.5 h-3.5"></i>
+          <i data-lucide="star" class="fill-current w-3.5 h-3.5"></i>
+          <i data-lucide="star-half" class="fill-current w-3.5 h-3.5"></i>
+        </div>
+        <p class="font-body text-[10px] text-ink-muted uppercase tracking-[0.2em]">Google Stars</p>
+      </div>
+
+      <div class="bg-silk-50 px-6 py-6 rounded-2xl border border-copper-400/20 shadow-soft text-center">
+        <p class="font-display text-5xl text-copper-600 font-medium leading-none mb-2">411</p>
+        <p class="font-body text-[10px] text-ink-muted uppercase tracking-[0.2em] mt-3">Women, Reviewed</p>
+      </div>
+
+      <div class="bg-silk-50 px-6 py-6 rounded-2xl border border-copper-400/20 shadow-soft text-center">
+        <p class="font-display text-5xl text-copper-600 font-medium leading-none mb-2">108</p>
+        <p class="font-body text-[10px] text-ink-muted uppercase tracking-[0.2em] mt-3">Mentions of<br/>"Friendly Staff"</p>
+      </div>
+
+      <div class="bg-silk-50 px-6 py-6 rounded-2xl border border-copper-400/20 shadow-soft text-center">
+        <p class="font-display text-5xl text-copper-600 font-medium leading-none mb-2">60</p>
+        <p class="font-body text-[10px] text-ink-muted uppercase tracking-[0.2em] mt-3">Combined Reviews<br/>for Lash Work</p>
+      </div>
+
+    </div>
+
+    <p class="font-body text-lg text-ink-soft max-w-2xl mx-auto leading-relaxed">
+      411 women have written about their time with us on Google. Not as customers. As regulars who came back, brought friends, and put it in their own words. A few of those words live here.
+    </p>
+  </div>
+
+  <!-- Marquee track -->
+  <div class="marquee-mask py-4">
+    <div class="marquee-track">
+
+      <!-- Set 1 -->
+      <div class="w-[400px] flex-shrink-0 bg-silk-50 p-8 rounded-2xl border border-copper-400/15 shadow-soft">
+        <div class="flex star-rating mb-4 text-base">
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+        </div>
+        <p class="font-display italic text-lg text-ink leading-snug mb-5">
+          "Katrice did my lash extensions and they look so natural — like I was just born with longer lashes. I've already booked my fill."
+        </p>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted">— Lash Extensions · Google Review</p>
+      </div>
+
+      <div class="w-[400px] flex-shrink-0 bg-silk-50 p-8 rounded-2xl border border-copper-400/15 shadow-soft">
+        <div class="flex star-rating mb-4 text-base">
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+        </div>
+        <p class="font-display italic text-lg text-ink leading-snug mb-5">
+          "The lash lift was the best I've had. They lasted weeks and looked like the kind of lashes you wake up wishing you had."
+        </p>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted">— Lash Lift · Google Review</p>
+      </div>
+
+      <div class="w-[400px] flex-shrink-0 bg-silk-50 p-8 rounded-2xl border border-copper-400/15 shadow-soft">
+        <div class="flex star-rating mb-4 text-base">
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+        </div>
+        <p class="font-display italic text-lg text-ink leading-snug mb-5">
+          "The staff is so warm. From the moment you walk in, you feel like a regular even if it's your first time. I keep bringing my sister."
+        </p>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted">— Friendly Staff · Google Review</p>
+      </div>
+
+      <div class="w-[400px] flex-shrink-0 bg-silk-50 p-8 rounded-2xl border border-copper-400/15 shadow-soft">
+        <div class="flex star-rating mb-4 text-base">
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+        </div>
+        <p class="font-display italic text-lg text-ink leading-snug mb-5">
+          "My Hydrafacial left my skin glowing for days. The whole experience felt like an exhale — quiet, careful, exactly what I needed."
+        </p>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted">— Hydrafacial · Google Review</p>
+      </div>
+
+      <div class="w-[400px] flex-shrink-0 bg-silk-50 p-8 rounded-2xl border border-copper-400/15 shadow-soft">
+        <div class="flex star-rating mb-4 text-base">
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+        </div>
+        <p class="font-display italic text-lg text-ink leading-snug mb-5">
+          "I've been coming here for years. The new ownership has only deepened what I already loved. My artists, my chair, my favorite hour of the month."
+        </p>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted">— Regular · Google Review</p>
+      </div>
+
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="w-[400px] flex-shrink-0 bg-silk-50 p-8 rounded-2xl border border-copper-400/15 shadow-soft">
+        <div class="flex star-rating mb-4 text-base">
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+        </div>
+        <p class="font-display italic text-lg text-ink leading-snug mb-5">
+          "Katrice did my lash extensions and they look so natural — like I was just born with longer lashes. I've already booked my fill."
+        </p>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted">— Lash Extensions · Google Review</p>
+      </div>
+
+      <div class="w-[400px] flex-shrink-0 bg-silk-50 p-8 rounded-2xl border border-copper-400/15 shadow-soft">
+        <div class="flex star-rating mb-4 text-base">
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+        </div>
+        <p class="font-display italic text-lg text-ink leading-snug mb-5">
+          "The lash lift was the best I've had. They lasted weeks and looked like the kind of lashes you wake up wishing you had."
+        </p>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted">— Lash Lift · Google Review</p>
+      </div>
+
+      <div class="w-[400px] flex-shrink-0 bg-silk-50 p-8 rounded-2xl border border-copper-400/15 shadow-soft">
+        <div class="flex star-rating mb-4 text-base">
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+        </div>
+        <p class="font-display italic text-lg text-ink leading-snug mb-5">
+          "The staff is so warm. From the moment you walk in, you feel like a regular even if it's your first time. I keep bringing my sister."
+        </p>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted">— Friendly Staff · Google Review</p>
+      </div>
+
+      <div class="w-[400px] flex-shrink-0 bg-silk-50 p-8 rounded-2xl border border-copper-400/15 shadow-soft">
+        <div class="flex star-rating mb-4 text-base">
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+        </div>
+        <p class="font-display italic text-lg text-ink leading-snug mb-5">
+          "My Hydrafacial left my skin glowing for days. The whole experience felt like an exhale — quiet, careful, exactly what I needed."
+        </p>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted">— Hydrafacial · Google Review</p>
+      </div>
+
+      <div class="w-[400px] flex-shrink-0 bg-silk-50 p-8 rounded-2xl border border-copper-400/15 shadow-soft">
+        <div class="flex star-rating mb-4 text-base">
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+          <i data-lucide="star" class="fill-current w-4 h-4"></i>
+        </div>
+        <p class="font-display italic text-lg text-ink leading-snug mb-5">
+          "I've been coming here for years. The new ownership has only deepened what I already loved. My artists, my chair, my favorite hour of the month."
+        </p>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted">— Regular · Google Review</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA below marquee -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 text-center mt-12">
+    <a href="#visit" class="btn-primary inline-block px-9 py-4 rounded-full text-sm uppercase tracking-[0.25em] font-medium mb-4">
+      Book Your First Visit
+    </a>
+    <div>
+      <a href="https://www.google.com/search?q=pure+silk+beauty+upper+arlington+reviews" target="_blank"
+         class="font-body text-sm text-ink-soft hover:text-copper-500 transition inline-flex items-center gap-2">
+        Or read all 411 reviews on Google
+        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SECTION 5 — ABOUT / STORY SNIPPET                                   -->
+<!-- ================================================================== -->
+<!-- Silk wave divider -->
+<div class="silk-divider silk-paper">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path class="silk-wave-path-2" d="M0,35 Q360,10 720,35 T1440,35 L1440,60 L0,60 Z" fill="rgba(232, 195, 151, 0.20)"/>
+    <path class="silk-wave-path" d="M0,42 Q360,62 720,42 T1440,42 L1440,60 L0,60 Z" fill="rgba(194, 139, 90, 0.10)"/>
+  </svg>
+</div>
+
+<section id="story" class="py-20 lg:py-32 bg-silk-50">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-14 items-center">
+
+    <!-- Left: Interior shot of the studio -->
+    <div class="lg:col-span-5 order-2 lg:order-1">
+      <div class="aspect-[3/4] rounded-2xl overflow-hidden relative shadow-ritual">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081557_ad64ffcd-f1d1-4c71-a111-4aaa33cbb180.png"
+             alt="Interior of Pure Silk Beauty boutique studio in Upper Arlington"
+             class="w-full h-full object-cover"
+             loading="lazy" />
+        <!-- Subtle copper warmth overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-copper-700/15 via-transparent to-transparent"></div>
+
+        <!-- Floating brand monogram -->
+        <div class="absolute bottom-5 right-5 bg-silk-50/95 backdrop-blur-sm px-4 py-3 rounded-full shadow-soft border border-copper-400/20 flex items-center gap-2">
+          <img src="https://www.puresilkbeauty.com/cdn/shop/files/Pure_silk_logo_300x300.png?v=1776658596"
+               alt=""
+               class="w-8 h-8" />
+          <span class="font-display text-sm text-copper-700 italic">Tended daily.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Story copy -->
+    <div class="lg:col-span-7 order-1 lg:order-2">
+
+      <p class="font-body text-xs uppercase tracking-[0.4em] text-copper-500 mb-4">Our Story</p>
+
+      <h2 class="font-display italic text-5xl md:text-6xl text-ink mb-8 font-light leading-tight">
+        The House We're Tending
+      </h2>
+
+      <div class="space-y-5 font-body text-lg text-ink-soft leading-relaxed">
+        <p>Pure Silk Beauty has been a fixture in Upper Arlington for years — a small house of care where women came to be seen.</p>
+
+        <p>We took stewardship of that house with a single promise: <em class="font-display text-copper-600">to honor what was already loved, and to deepen what could be deepened.</em></p>
+
+        <p>The taglines remained. The team grew. The standard rose.</p>
+
+        <p>The covenant — that every woman who walks through the door leaves more herself than when she came — that's the part we hold like silk.</p>
+
+        <p class="font-display italic text-xl text-copper-600 pt-2">This is a chapter. You're invited in.</p>
+      </div>
+
+      <!-- Reach signal (Tiff intel — drive radius) -->
+      <div class="mt-10 pt-8 border-t border-copper-400/20">
+        <p class="font-body text-xs uppercase tracking-[0.3em] text-copper-500 mb-3">Worth the Drive</p>
+        <p class="font-display italic text-lg text-ink leading-snug">
+          Clients travel from Johnstown, Canal Winchester, and Lancaster.
+          <span class="not-italic font-body text-sm text-ink-muted block mt-2">A neighborhood salon with a regional following.</span>
+        </p>
+      </div>
+
+      <a href="#" class="mt-10 font-body text-sm uppercase tracking-[0.25em] text-copper-500 hover:text-copper-700 inline-flex items-center gap-3 group">
+        Read the Full Story
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SECTION 6 — TEAM PREVIEW                                            -->
+<!-- ================================================================== -->
+<!-- Silk wave divider -->
+<div class="silk-divider bg-silk-50">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path class="silk-wave-path-2" d="M0,32 Q360,60 720,32 T1440,32 L1440,60 L0,60 Z" fill="rgba(232, 195, 151, 0.20)"/>
+    <path class="silk-wave-path" d="M0,40 Q360,12 720,40 T1440,40 L1440,60 L0,60 Z" fill="rgba(194, 139, 90, 0.10)"/>
+  </svg>
+</div>
+
+<section id="team" class="py-20 lg:py-32 bg-silk-100">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <p class="font-body text-xs uppercase tracking-[0.4em] text-copper-500 mb-4">The Artists</p>
+      <h2 class="font-display italic text-5xl md:text-6xl text-ink mb-6 font-light">
+        The Hands That Hold the Room
+      </h2>
+      <div class="copper-rule-short mb-8"></div>
+      <p class="font-body text-lg text-ink-soft leading-relaxed">
+        Seven artists. Seven specialties. One shared instinct — that every woman in our chair deserves the kind of attention that doesn't need to announce itself.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 mb-12 max-w-5xl mx-auto">
+
+      <!-- Katrice -->
+      <div class="text-center">
+        <div class="team-chip rounded-full aspect-square mb-4 flex items-center justify-center shadow-soft">
+          <span class="font-script text-5xl text-copper-600">K</span>
+        </div>
+        <h4 class="font-display text-xl text-ink">Katrice</h4>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted mt-1">Lashes</p>
+      </div>
+
+      <!-- Olena -->
+      <div class="text-center">
+        <div class="team-chip rounded-full aspect-square mb-4 flex items-center justify-center shadow-soft">
+          <span class="font-script text-5xl text-copper-600">O</span>
+        </div>
+        <h4 class="font-display text-xl text-ink">Olena</h4>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted mt-1">Skin</p>
+      </div>
+
+      <!-- Paris -->
+      <div class="text-center">
+        <div class="team-chip rounded-full aspect-square mb-4 flex items-center justify-center shadow-soft">
+          <span class="font-script text-5xl text-copper-600">P</span>
+        </div>
+        <h4 class="font-display text-xl text-ink">Paris</h4>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted mt-1">Brows</p>
+      </div>
+
+      <!-- Eva -->
+      <div class="text-center">
+        <div class="team-chip rounded-full aspect-square mb-4 flex items-center justify-center shadow-soft">
+          <span class="font-script text-5xl text-copper-600">E</span>
+        </div>
+        <h4 class="font-display text-xl text-ink">Eva</h4>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted mt-1">Permanent</p>
+      </div>
+
+      <!-- Tiffany -->
+      <div class="text-center">
+        <div class="team-chip rounded-full aspect-square mb-4 flex items-center justify-center shadow-soft">
+          <span class="font-script text-5xl text-copper-600">T</span>
+        </div>
+        <h4 class="font-display text-xl text-ink">Tiffany</h4>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted mt-1">Massage</p>
+      </div>
+
+      <!-- Briguitte -->
+      <div class="text-center">
+        <div class="team-chip rounded-full aspect-square mb-4 flex items-center justify-center shadow-soft">
+          <span class="font-script text-5xl text-copper-600">B</span>
+        </div>
+        <h4 class="font-display text-xl text-ink">Briguitte</h4>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted mt-1">Waxing</p>
+      </div>
+
+      <!-- Breana -->
+      <div class="text-center">
+        <div class="team-chip rounded-full aspect-square mb-4 flex items-center justify-center shadow-soft">
+          <span class="font-script text-5xl text-copper-600">B</span>
+        </div>
+        <h4 class="font-display text-xl text-ink">Breana</h4>
+        <p class="font-body text-xs uppercase tracking-[0.2em] text-ink-muted mt-1">Facials</p>
+      </div>
+
+    </div>
+
+    <div class="text-center">
+      <p class="font-display italic text-lg text-copper-600 mb-4">Get to know them before you book — or let us pair you when you arrive.</p>
+      <a href="#" class="font-body text-sm uppercase tracking-[0.25em] text-copper-500 hover:text-copper-700 inline-flex items-center gap-3 group">
+        Meet the Team
+        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- SECTION 7 — FINAL CTA                                               -->
+<!-- ================================================================== -->
+<section id="visit" class="relative py-20 lg:py-32 overflow-hidden">
+
+  <!-- Background atmosphere image (Higgsfield: empty chair, dappled light) -->
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081600_1c9e0f18-e382-4f8f-8ecc-945d95b9c7f5.png"
+       alt="The chair is ready"
+       class="absolute inset-0 w-full h-full object-cover opacity-40" />
+  <div class="absolute inset-0 bg-gradient-to-b from-silk-100 via-silk-100/80 to-silk-100"></div>
+
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+
+    <p class="font-body text-xs uppercase tracking-[0.4em] text-copper-500 mb-4">An Invitation</p>
+
+    <h2 class="font-display italic text-5xl md:text-6xl text-ink mb-8 font-light leading-tight">
+      When You're Ready,<br/>the Room Is Ready.
+    </h2>
+
+    <div class="copper-rule-short mb-10"></div>
+
+    <p class="font-body text-xl text-ink-soft leading-relaxed mb-4">
+      There's no urgency here.
+    </p>
+
+    <p class="font-body text-lg text-ink-soft leading-relaxed mb-10 max-w-xl mx-auto">
+      There's a chair, a quiet hour, and a team that has spent years learning how to tend without rushing. Whenever you'd like to be in it — we'll be here.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+      <a href="https://www.vagaro.com/puresilkbeauty" target="_blank"
+         class="btn-primary px-9 py-4 rounded-full text-sm uppercase tracking-[0.25em] font-medium inline-flex items-center gap-3 justify-center">
+        Book Through Vagaro
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="tel:+16145649154"
+         class="btn-outline px-9 py-4 rounded-full text-sm uppercase tracking-[0.25em] font-medium inline-flex items-center gap-3 justify-center bg-silk-50/70 backdrop-blur-sm">
+        <i data-lucide="phone" class="w-4 h-4"></i>
+        Call (614) 564-9154
+      </a>
+    </div>
+
+    <p class="font-display italic text-base text-ink-muted">
+      Or visit us at 1153 Kenny Centre Mall, Columbus OH
+    </p>
+
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- FOOTER                                                              -->
+<!-- ================================================================== -->
+<footer class="bg-copper-800 text-silk-100 pt-20 pb-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="grid md:grid-cols-4 gap-12 mb-16">
+
+      <!-- Brand block -->
+      <div class="md:col-span-2">
+        <img src="https://www.puresilkbeauty.com/cdn/shop/files/Pure_silk_logo_300x300.png?v=1776658596"
+             alt="Pure Silk Beauty"
+             class="w-16 h-16 mb-5" />
+        <h3 class="font-display text-3xl text-silk-50 mb-3">Pure Silk Beauty</h3>
+        <p class="font-script text-3xl text-gold-300 mb-6">Where Your Beauty Glows Like Pure Silk.</p>
+        <p class="font-body text-sm text-silk-200 max-w-md leading-relaxed">
+          A house of care in Upper Arlington · Tended daily.
+        </p>
+      </div>
+
+      <!-- Visit -->
+      <div>
+        <h4 class="font-body text-xs uppercase tracking-[0.3em] text-gold-300 mb-5">Visit</h4>
+        <p class="font-body text-sm text-silk-200 leading-relaxed mb-2">
+          1153 Kenny Centre Mall<br/>
+          Columbus, Ohio 43220
+        </p>
+        <a href="tel:+16145649154" class="font-body text-sm text-silk-100 hover:text-gold-300 transition block mt-3">
+          (614) 564-9154
+        </a>
+        <a href="mailto:Info@puresilkbeauty.com" class="font-body text-sm text-silk-100 hover:text-gold-300 transition block mt-1">
+          Info@puresilkbeauty.com
+        </a>
+      </div>
+
+      <!-- Hours + social -->
+      <div>
+        <h4 class="font-body text-xs uppercase tracking-[0.3em] text-gold-300 mb-5">Hours</h4>
+        <p class="font-body text-sm text-silk-200 leading-relaxed">
+          Monday – Friday · 10am – 7pm<br/>
+          Saturday · 10am – 5pm<br/>
+          Sunday · 11am – 5pm
+        </p>
+
+        <h4 class="font-body text-xs uppercase tracking-[0.3em] text-gold-300 mt-7 mb-3">Follow</h4>
+        <div class="flex gap-3">
+          <a href="https://www.instagram.com/puresilkbeauty_ohio/" target="_blank" aria-label="Instagram"
+             class="w-10 h-10 rounded-full border border-silk-100/30 flex items-center justify-center hover:bg-silk-100 hover:text-copper-700 transition">
+            <i data-lucide="camera" class="w-4 h-4"></i>
+          </a>
+          <a href="https://www.facebook.com/Puresilkbeauty1/" target="_blank" aria-label="Facebook"
+             class="w-10 h-10 rounded-full border border-silk-100/30 flex items-center justify-center hover:bg-silk-100 hover:text-copper-700 transition">
+            <i data-lucide="thumbs-up" class="w-4 h-4"></i>
+          </a>
+          <a href="#" target="_blank"
+             class="w-10 h-10 rounded-full border border-silk-100/30 flex items-center justify-center hover:bg-silk-100 hover:text-copper-700 transition">
+            <i data-lucide="music-2" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="copper-rule mb-8 opacity-30"></div>
+
+    <div class="flex flex-col md:flex-row md:justify-between items-center gap-4 text-xs text-silk-200/70">
+      <p class="font-body">© 2026 Pure Silk Beauty · All rights reserved</p>
+      <div class="flex gap-6 font-body">
+        <a href="#" class="hover:text-gold-300 transition">Privacy</a>
+        <a href="#" class="hover:text-gold-300 transition">Terms & Conditions</a>
+        <a href="#" class="hover:text-gold-300 transition">Cancellation Policy</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ================================================================== -->
+<!-- COOKIE STRIP (friendly, non-modal)                                  -->
+<!-- ================================================================== -->
+<div id="cookie-strip" class="fixed bottom-0 left-0 right-0 z-50 bg-silk-50/95 backdrop-blur-md border-t border-copper-400/30 shadow-soft">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="font-body text-sm text-ink-soft text-center sm:text-left">
+      We use a few cookies to make the room feel like yours when you return.
+      <a href="#" class="text-copper-600 underline underline-offset-2 hover:text-copper-700 ml-1">Manage</a>
+    </p>
+    <button id="cookie-accept" class="btn-primary px-7 py-2.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium whitespace-nowrap">
+      Accept
+    </button>
+  </div>
+</div>
+
+<script>
+  // Initialize Lucide icons after DOM load
+  lucide.createIcons();
+
+  // Friendly cookie strip — auto-show 1.2s after load, dismiss on Accept
+  setTimeout(() => {
+    const strip = document.getElementById('cookie-strip');
+    if (strip && !sessionStorage.getItem('cookieAccepted')) {
+      strip.classList.add('show');
+    }
+  }, 1200);
+
+  document.getElementById('cookie-accept')?.addEventListener('click', () => {
+    const strip = document.getElementById('cookie-strip');
+    if (strip) {
+      strip.classList.remove('show');
+      sessionStorage.setItem('cookieAccepted', '1');
+    }
+  });
+
+  // ===== Hero carousel cycle (Heyday pattern, Pass 4) =====
+  (function() {
+    const frames = document.querySelectorAll('.hero-frame');
+    const dots = document.querySelectorAll('[data-frame-btn]');
+    if (frames.length < 2) return;
+
+    let currentFrame = 0;
+    let cycleId;
+
+    function setFrame(idx) {
+      frames.forEach((f, i) => f.classList.toggle('active', i === idx));
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      currentFrame = idx;
+    }
+    function startCycle() {
+      cycleId = setInterval(() => setFrame((currentFrame + 1) % frames.length), 7000);
+    }
+    function stopCycle() { clearInterval(cycleId); }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        setFrame(i);
+        stopCycle();
+        startCycle();
+      });
+    });
+
+    const heroSec = frames[0].closest('section');
+    if (heroSec) {
+      heroSec.addEventListener('mouseenter', stopCycle);
+      heroSec.addEventListener('mouseleave', startCycle);
+    }
+    startCycle();
+  })();
+
+  // ===== Scroll-fade entry observer (Pass 4) =====
+  (function() {
+    const targets = document.querySelectorAll('.scroll-fade');
+    if (!targets.length || !('IntersectionObserver' in window)) {
+      targets.forEach(t => t.classList.add('in-view'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+    targets.forEach(t => obs.observe(t));
+  })();
+</script>
+
+</body>
+</html>
