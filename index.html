@@ -620,8 +620,11 @@
   </svg>
 </div>
 
-<section class="py-20 lg:py-28 bg-silk-50">
-  <div class="max-w-3xl mx-auto px-6 text-center">
+<section class="py-20 lg:py-28 bg-silk-50 relative overflow-hidden">
+  <!-- Ambient silk flow (subtle brand-fabric layer) -->
+  <canvas class="silk-bg" data-silk='{"speed":1.8,"scale":1.0,"color":"#E8C397","noiseIntensity":0,"rotation":2.47}' style="position:absolute;inset:0;width:100%;height:100%;opacity:0.32;mix-blend-mode:multiply;pointer-events:none;z-index:0;"></canvas>
+
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
 
     <p class="font-body text-xs uppercase tracking-[0.4em] text-copper-500 mb-8">An Invitation</p>
 
@@ -1478,8 +1481,11 @@
   </svg>
 </div>
 
-<section id="story" class="py-20 lg:py-32 bg-silk-50">
-  <div class="max-w-6xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-14 items-center">
+<section id="story" class="py-20 lg:py-32 bg-silk-50 relative overflow-hidden">
+  <!-- Ambient silk flow (subtle brand-fabric layer) -->
+  <canvas class="silk-bg" data-silk='{"speed":1.5,"scale":1.15,"color":"#E8C397","noiseIntensity":0,"rotation":3.1}' style="position:absolute;inset:0;width:100%;height:100%;opacity:0.28;mix-blend-mode:multiply;pointer-events:none;z-index:0;"></canvas>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-14 items-center">
 
     <!-- Left: Interior shot of the studio -->
     <div class="lg:col-span-5 order-2 lg:order-1">
@@ -1783,6 +1789,140 @@
     </button>
   </div>
 </div>
+
+<!-- ==================================================================== -->
+<!-- SILK SHADER (vanilla WebGL — ReactBits Silk port, brand-subtle)       -->
+<!-- ==================================================================== -->
+<script>
+(function() {
+  const VERT = "attribute vec2 a_position; varying vec2 vUv; void main(){ vUv = a_position * 0.5 + 0.5; gl_Position = vec4(a_position, 0.0, 1.0); }";
+
+  // Subtle variant: pattern range 0.75-0.93 (was 0.2-1.0). Brand-aligned ambient flow.
+  const FRAG = "precision mediump float; varying vec2 vUv; uniform float uTime; uniform vec3 uColor; uniform float uSpeed; uniform float uScale; uniform float uRotation; uniform float uNoiseIntensity; const float e = 2.71828182845904523536; float noise(vec2 texCoord){ float G=e; vec2 r=G*sin(G*texCoord); return fract(r.x*r.y*(1.0+texCoord.x)); } vec2 rotateUvs(vec2 uv,float angle){ float c=cos(angle); float s=sin(angle); return mat2(c,-s,s,c)*uv; } void main(){ float rnd = noise(gl_FragCoord.xy); vec2 uv = rotateUvs(vUv*uScale, uRotation); vec2 tex = uv*uScale; float tOffset = uSpeed*uTime; tex.y += 0.03*sin(8.0*tex.x - tOffset); float pattern = 0.78 + 0.16 * sin(5.0*(tex.x+tex.y + cos(3.0*tex.x + 5.0*tex.y) + 0.02*tOffset) + sin(20.0*(tex.x+tex.y - 0.1*tOffset))); vec4 col = vec4(uColor, 1.0) * pattern - rnd/18.0 * uNoiseIntensity; col.a = 1.0; gl_FragColor = col; }";
+
+  function compileShader(gl, type, src) {
+    const sh = gl.createShader(type);
+    gl.shaderSource(sh, src);
+    gl.compileShader(sh);
+    if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
+      console.warn('Silk shader compile error:', gl.getShaderInfoLog(sh));
+    }
+    return sh;
+  }
+
+  class SilkBg {
+    constructor(canvas, opts) {
+      const o = Object.assign({ speed: 2, scale: 1.1, color: '#E8C397', noiseIntensity: 0, rotation: 2.47 }, opts || {});
+      this.canvas = canvas;
+      const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false, antialias: false });
+      if (!gl) return;
+      this.gl = gl;
+
+      const hex = o.color.replace('#', '');
+      this.rgb = [
+        parseInt(hex.slice(0, 2), 16) / 255,
+        parseInt(hex.slice(2, 4), 16) / 255,
+        parseInt(hex.slice(4, 6), 16) / 255
+      ];
+
+      const vert = compileShader(gl, gl.VERTEX_SHADER, VERT);
+      const frag = compileShader(gl, gl.FRAGMENT_SHADER, FRAG);
+      const prog = gl.createProgram();
+      gl.attachShader(prog, vert);
+      gl.attachShader(prog, frag);
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+        console.warn('Silk link error:', gl.getProgramInfoLog(prog));
+        return;
+      }
+      gl.useProgram(prog);
+
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+        -1, -1, 1, -1, -1, 1,
+        -1, 1, 1, -1, 1, 1
+      ]), gl.STATIC_DRAW);
+      const loc = gl.getAttribLocation(prog, 'a_position');
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+      this.locs = {
+        uTime: gl.getUniformLocation(prog, 'uTime'),
+        uColor: gl.getUniformLocation(prog, 'uColor'),
+        uSpeed: gl.getUniformLocation(prog, 'uSpeed'),
+        uScale: gl.getUniformLocation(prog, 'uScale'),
+        uRotation: gl.getUniformLocation(prog, 'uRotation'),
+        uNoiseIntensity: gl.getUniformLocation(prog, 'uNoiseIntensity')
+      };
+      gl.uniform3f(this.locs.uColor, this.rgb[0], this.rgb[1], this.rgb[2]);
+      gl.uniform1f(this.locs.uSpeed, o.speed);
+      gl.uniform1f(this.locs.uScale, o.scale);
+      gl.uniform1f(this.locs.uRotation, o.rotation);
+      gl.uniform1f(this.locs.uNoiseIntensity, o.noiseIntensity);
+
+      this.paused = false;
+      this.startTime = performance.now();
+
+      this.resize();
+      const ro = new ResizeObserver(() => this.resize());
+      ro.observe(canvas.parentElement || canvas);
+      window.addEventListener('resize', () => this.resize());
+
+      this.tick = this.tick.bind(this);
+      requestAnimationFrame(this.tick);
+    }
+
+    resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = this.canvas.getBoundingClientRect();
+      const w = Math.max(1, Math.floor(rect.width * dpr));
+      const h = Math.max(1, Math.floor(rect.height * dpr));
+      if (this.canvas.width !== w || this.canvas.height !== h) {
+        this.canvas.width = w;
+        this.canvas.height = h;
+        this.gl.viewport(0, 0, w, h);
+      }
+    }
+
+    tick() {
+      if (!this.paused && this.gl && this.locs && this.locs.uTime) {
+        const t = (performance.now() - this.startTime) / 1000;
+        this.gl.uniform1f(this.locs.uTime, t * 0.1);
+        this.gl.drawArrays(this.gl.TRIANGLES, 0, 6);
+      }
+      requestAnimationFrame(this.tick);
+    }
+  }
+
+  // Honor reduced-motion preference
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initSilk() {
+    if (reduceMotion) return;
+    const targets = document.querySelectorAll('canvas.silk-bg');
+    if (!targets.length) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.target._silk) e.target._silk.paused = !e.isIntersecting;
+      });
+    }, { rootMargin: '0px' });
+    targets.forEach(c => {
+      try {
+        const opts = c.dataset.silk ? JSON.parse(c.dataset.silk) : {};
+        c._silk = new SilkBg(c, opts);
+        observer.observe(c);
+      } catch (err) { console.warn('Silk init failed:', err); }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSilk);
+  } else {
+    initSilk();
+  }
+})();
+</script>
 
 <script>
   // Initialize Lucide icons after DOM load
