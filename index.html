@@ -325,10 +325,16 @@
       z-index: 5;
     }
 
-    /* Frame object-position tuned for portrait visible area (9:16 generated mobile imagery preferred when wired) */
-    #hero .hero-frame[data-frame="0"] img { object-position: 58% 32% !important; }
-    #hero .hero-frame[data-frame="1"] img { object-position: 50% 48% !important; }
-    #hero .hero-frame[data-frame="2"] img { object-position: 50% 58% !important; }
+    /* 9:16 portrait imagery served via <picture> on mobile — center positioning is now ideal */
+    #hero .hero-frame[data-frame="0"] img { object-position: 50% 35% !important; }
+    #hero .hero-frame[data-frame="1"] img { object-position: 50% 50% !important; }
+    #hero .hero-frame[data-frame="2"] img { object-position: 50% 50% !important; }
+    /* Ensure picture and source resolve correctly with object-fit */
+    #hero .hero-frame picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
 
     /* Copy container — full width below image, normal flow, cream silk background */
     #hero > .relative.z-10 {
@@ -528,20 +534,29 @@
   <!-- Hero carousel: 3 frames cycling (Heyday pattern), Frame 3 is "video" Ken Burns pan -->
   <div class="absolute inset-0 z-0">
     <div class="hero-frame active" data-frame="0">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081501_50a95645-19f8-41c9-839b-8e5dc6fd75f6.png"
-           alt="A woman receiving care at Pure Silk Beauty"
-           loading="eager"
-           fetchpriority="high" />
+      <picture>
+        <source media="(max-width: 768px)" srcset="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_161537_b95e0866-9b0c-4898-8b22-b72d8dad4d33.png" />
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081501_50a95645-19f8-41c9-839b-8e5dc6fd75f6.png"
+             alt="A woman receiving care at Pure Silk Beauty"
+             loading="eager"
+             fetchpriority="high" />
+      </picture>
     </div>
     <div class="hero-frame" data-frame="1">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081557_ad64ffcd-f1d1-4c71-a111-4aaa33cbb180.png"
-           alt="The interior of Pure Silk Beauty studio"
-           loading="lazy" />
+      <picture>
+        <source media="(max-width: 768px)" srcset="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_161542_08395d27-73a5-4215-bdf2-369c5e6b83e3.png" />
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081557_ad64ffcd-f1d1-4c71-a111-4aaa33cbb180.png"
+             alt="The interior of Pure Silk Beauty studio"
+             loading="lazy" />
+      </picture>
     </div>
     <div class="hero-frame hero-frame-video" data-frame="2">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081600_1c9e0f18-e382-4f8f-8ecc-945d95b9c7f5.png"
-           alt="The chair, ready for you"
-           loading="lazy" />
+      <picture>
+        <source media="(max-width: 768px)" srcset="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_161547_b6ef7dbd-a76a-44ef-9778-004270ad0905.png" />
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39eFB6nCaTkROVDLzQSzBJuQA8v/hf_20260521_081600_1c9e0f18-e382-4f8f-8ecc-945d95b9c7f5.png"
+             alt="The chair, ready for you"
+             loading="lazy" />
+      </picture>
     </div>
     <!-- Cream-silk gradient overlay for text legibility -->
     <div class="absolute inset-0 bg-gradient-to-r from-silk-100 via-silk-100/85 to-silk-100/15 lg:to-transparent"></div>
